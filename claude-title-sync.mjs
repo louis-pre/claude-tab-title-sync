@@ -144,8 +144,8 @@ function processChunk(chunk) {
   if (pending.length > 4096) pending = pending.slice(-256)
 }
 
-// Strip leading ornament chars (Claude's working/idle icon: "* ", "* * * ",
-// "✳ ", "✳ ✳ ", any braille spinner glyph in U+2800-U+28FF, bullets, dots).
+// Strip leading ornament chars (Claude's working/idle icon: "* ", "✳ ",
+// any braille spinner glyph in U+2800-U+28FF, bullets, dots).
 const LEADING_ORNAMENT_RE = /^[\s*✳✦·•◯○●\u2800-\u28FF]+/u
 
 function normalizeTitle(raw) {

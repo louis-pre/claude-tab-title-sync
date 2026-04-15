@@ -41,7 +41,7 @@ command claude   # skips the alias
 1. The wrapper spawns the real `claude` binary under a PTY (via `node-pty`) so Claude continues to behave as a fully-interactive TTY app.
 2. For new sessions it injects `--session-id <uuid>` so it knows the session ID upfront. For `--resume` / `--continue` it discovers the active session by tailing the newest mtime in `~/.claude/projects/<encoded-cwd>/`.
 3. Claude's stdout is forwarded to your terminal unmodified.
-4. In parallel, the stream is scanned for OSC `\e]0;TITLE\a`, `\e]1;TITLE\a`, `\e]2;TITLE\a` sequences. Leading ornament glyphs are stripped (Claude prefixes the title with spinner glyphs like `⠂`, `✳`, `* * *` while it works), and the result is passed to `renameSession()`.
+4. In parallel, the stream is scanned for OSC `\e]0;TITLE\a`, `\e]1;TITLE\a`, `\e]2;TITLE\a` sequences. Leading ornament glyphs are stripped (Claude prefixes the title with spinner glyphs like `⠂` or `✳` while it works), and the result is passed to `renameSession()`.
 5. The default `Claude Code` title and any title identical to the previously-set one are skipped.
 
 ## Environment variables
