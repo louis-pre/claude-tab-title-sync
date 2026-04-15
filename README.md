@@ -4,7 +4,7 @@ A small PTY wrapper around `claude` ([Claude Code CLI](https://docs.claude.com/e
 
 ## Why
 
-Claude Code already updates your terminal tab title with an AI-generated topic name (e.g. `Refactor user auth flow`), but that name lives only in the terminal — it isn't saved with the session. So when you later run `claude --resume` or browse the session picker, the entries don't carry that helpful title; they fall back to `Claude Code` or the first user prompt.
+Claude Code already updates your terminal tab title with an AI-generated topic name (e.g. `Refactor user auth flow`), but that name lives only in the terminal — it isn't saved with the session. So when you later run `claude --resume` or browse the session picker, the entries don't carry that helpful title; they fall back to `Claude Code` or the last user prompt.
 
 `/rename` from inside a session would persist a name, but you'd have to do it manually for every session. This wrapper closes the gap automatically: every time Claude updates the terminal title, the wrapper writes that title into the session's JSONL via `renameSession()`, so it shows up in the resume picker on subsequent runs.
 
